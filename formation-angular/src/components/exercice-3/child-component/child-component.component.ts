@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input, model, output } from '@angular/core';
 
 @Component({
   selector: 'app-child-component',
@@ -16,17 +16,23 @@ export class ChildComponentComponent {
   numberEvent = output<number>()
   booleanEvent = output<boolean>()
 
+  email = input<string>('')
+  emailChange = output<string>()
 
-  sendString(){
+  sendString() {
     this.stringEvent.emit('Message')
   }
 
-  sendNumber(){
+  sendNumber() {
     this.numberEvent.emit(123)
   }
 
-  sendBoolean(){
+  sendBoolean() {
     this.booleanEvent.emit(true)
   }
 
+  handleInput(newEmail: Event) {
+    const newValue = (event!.target as HTMLInputElement).value;
+    this.emailChange.emit(newValue)
+  }
 }

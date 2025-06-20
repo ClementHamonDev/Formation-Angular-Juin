@@ -5,3 +5,5 @@
 <button (click)="sendString()">Envoyé un string</button>
 <button (click)="sendNumber()">Envoyé un nombre</button>
 <button (click)="sendBoolean()">Envoyé un boolean</button>
+
+<input [value]="email()" (input)="handleInput($event)"/>

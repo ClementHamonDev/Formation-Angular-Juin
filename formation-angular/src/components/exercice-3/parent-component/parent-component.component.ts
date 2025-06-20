@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { ChildComponentComponent } from "../child-component/child-component.component";
 
 @Component({
@@ -12,6 +12,8 @@ export class ParentComponentComponent {
   receivedString = 'A';
   receivedNumber = 0;
   receivedBoolean = false;
+
+  email = 'exemple@gmail.com'
 
   handleString(value : string){
     this.receivedString = value

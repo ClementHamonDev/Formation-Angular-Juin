@@ -1,6 +1,9 @@
 <app-child-component [message]="'Ceci est pour mon enfant'" [numeric]="18" [boolean]="false"
     (stringEvent)="handleString($event)" (numberEvent)="handleNumber($event)"
-    (booleanEvent)="handleBoolean($event)"></app-child-component>
+    (booleanEvent)="handleBoolean($event)"
+    [(email)]="email"></app-child-component>
 <p>{{receivedString}}</p>
 <p>{{receivedNumber}}</p>
 <p>{{receivedBoolean}}</p>
+
+<p>{{email}}</p>
