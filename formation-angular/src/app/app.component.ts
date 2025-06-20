@@ -4,10 +4,13 @@ import { PremierComponentComponent } from "../components/premier-component/premi
 import { HelloWorldComponent } from "../components/exercice-1/hello-world/hello-world.component";
 import { WelcomeComponent } from '../components/exercice-1/welcome/welcome.component';
 import { PageComponent } from "../components/exercice-1/page/page.component";
+import { WelcomeWithNameComponent } from "../components/exercice-2/welcome-with-name/welcome-with-name.component";
+import { UserInfoComponent } from "../components/exercice-2/user-info/user-info.component";
+import { UserProfileComponent } from "../components/exercice-2/user-profile/user-profile.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, PremierComponentComponent, HelloWorldComponent, WelcomeComponent, PageComponent],
+  imports: [RouterOutlet, PremierComponentComponent, HelloWorldComponent, WelcomeComponent, PageComponent, WelcomeWithNameComponent, UserInfoComponent, UserProfileComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
