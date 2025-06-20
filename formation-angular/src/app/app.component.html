@@ -8,3 +8,12 @@
 <app-welcome-with-name></app-welcome-with-name>
 <app-user-info></app-user-info>
 <app-user-profile></app-user-profile>
+
+<app-input [firstName]="'Louis'" [lastName]="string" [age]="counter()"></app-input>
+
+<app-output (nameChange)="receiveData($event)"></app-output>
+<p>Message recu : {{receiveMessage}}</p>
+
+<app-bidirectionnel [(name)]="userName" [(age)]="currentAge"></app-bidirectionnel>
+<p>Nom mis à jour : {{userName}}</p>
+<button (click)="incrementAge()">Augmenter l'age - parent</button>
