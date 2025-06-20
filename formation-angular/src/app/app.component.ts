@@ -10,10 +10,11 @@ import { UserProfileComponent } from "../components/exercice-2/user-profile/user
 import { InputComponent } from "../components/input-output/input/input.component";
 import { OutputComponent } from "../components/input-output/output/output.component";
 import { BidirectionnelComponent } from "../components/input-output/bidirectionnel/bidirectionnel.component";
+import { ParentComponentComponent } from "../components/exercice-3/parent-component/parent-component.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, PremierComponentComponent, HelloWorldComponent, WelcomeComponent, PageComponent, WelcomeWithNameComponent, UserInfoComponent, UserProfileComponent, InputComponent, OutputComponent, BidirectionnelComponent],
+  imports: [RouterOutlet, PremierComponentComponent, HelloWorldComponent, WelcomeComponent, PageComponent, WelcomeWithNameComponent, UserInfoComponent, UserProfileComponent, InputComponent, OutputComponent, BidirectionnelComponent, ParentComponentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
