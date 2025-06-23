@@ -7,3 +7,9 @@
 <button (click)="sendBoolean()">Envoyé un boolean</button>
 
 <input [value]="email()" (input)="handleInput($event)"/>
+
+@for (itemList of filteredList; track $index) {
+    <li>{{itemList}}</li>
+} @empty {
+    <p>No item in my list</p>
+}

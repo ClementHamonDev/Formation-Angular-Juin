@@ -19,3 +19,6 @@
 <button (click)="incrementAge()">Augmenter l'age - parent</button>
 <app-parent-component></app-parent-component>
 
+<app-item-list [items]="items"></app-item-list>
+<app-filtered-item-list [items]="items" [query]="'it'"></app-filtered-item-list>
+

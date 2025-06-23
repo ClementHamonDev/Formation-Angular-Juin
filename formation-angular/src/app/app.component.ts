@@ -11,10 +11,12 @@ import { InputComponent } from "../components/input-output/input/input.component
 import { OutputComponent } from "../components/input-output/output/output.component";
 import { BidirectionnelComponent } from "../components/input-output/bidirectionnel/bidirectionnel.component";
 import { ParentComponentComponent } from "../components/exercice-3/parent-component/parent-component.component";
+import { ItemListComponent } from "../components/exercice-4/item-list/item-list.component";
+import { FilteredItemListComponent } from "../components/exercice-4/filtered-item-list/filtered-item-list.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, PremierComponentComponent, HelloWorldComponent, WelcomeComponent, PageComponent, WelcomeWithNameComponent, UserInfoComponent, UserProfileComponent, InputComponent, OutputComponent, BidirectionnelComponent, ParentComponentComponent],
+  imports: [RouterOutlet, PremierComponentComponent, HelloWorldComponent, WelcomeComponent, PageComponent, WelcomeWithNameComponent, UserInfoComponent, UserProfileComponent, InputComponent, OutputComponent, BidirectionnelComponent, ParentComponentComponent, ItemListComponent, FilteredItemListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -33,6 +35,8 @@ export class AppComponent {
   userName = 'Clément'
 
   currentAge = signal<number>(18)
+
+  items = ["Produit","Item"]
 
   init = () => {
     console.log(this.counter());

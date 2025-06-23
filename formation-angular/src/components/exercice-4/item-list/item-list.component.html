@@ -1,0 +1,6 @@
+<p>Liste d'items<p>
+@for (item of items(); track $index){
+    <ul>{{item}}</ul>
+} @empty {
+    Liste vide
+}

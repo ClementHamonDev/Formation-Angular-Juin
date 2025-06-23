@@ -16,23 +16,28 @@ export class ChildComponentComponent {
   numberEvent = output<number>()
   booleanEvent = output<boolean>()
 
-  email = input<string>('')
-  emailChange = output<string>()
+  email = model<string>('');
 
-  sendString() {
+  list = ["a","b","c"]
+
+  filteredList = this.list.filter(item => item.startsWith("a"))
+
+
+  sendString(){
     this.stringEvent.emit('Message')
   }
 
-  sendNumber() {
+  sendNumber(){
     this.numberEvent.emit(123)
   }
 
-  sendBoolean() {
+  sendBoolean(){
     this.booleanEvent.emit(true)
   }
 
-  handleInput(newEmail: Event) {
-    const newValue = (event!.target as HTMLInputElement).value;
-    this.emailChange.emit(newValue)
+  handleInput(newEmail : Event){
+    const newValue = (newEmail.target as HTMLInputElement).value;
+    this.email.set(newValue)
   }
+
 }
