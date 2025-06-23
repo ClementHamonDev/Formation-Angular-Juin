@@ -21,10 +21,13 @@ import { ComposantCComponent } from '../components/exercice-5/composant-c/compos
 import { ComposantBComponent } from '../components/exercice-5/composant-b/composant-b.component';
 import { FormsModule } from '@angular/forms';
 import { ModalComponent } from "../components/exercice-5/modal/modal.component";
+import { ButtonComponent } from "../components/exercice-6/button/button.component";
+import { HoverboxComponent } from "../components/exercice-6/hoverbox/hoverbox.component";
+import { KeytrackerComponent } from "../components/exercice-6/keytracker/keytracker.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, PremierComponentComponent, HelloWorldComponent, WelcomeComponent, PageComponent, WelcomeWithNameComponent, UserInfoComponent, UserProfileComponent, InputComponent, OutputComponent, BidirectionnelComponent, ParentComponentComponent, ItemListComponent, FilteredItemListComponent, CommonModule, CardComponent, TextComponent, ModalComponent],
+  imports: [RouterOutlet, FormsModule, PremierComponentComponent, HelloWorldComponent, WelcomeComponent, PageComponent, WelcomeWithNameComponent, UserInfoComponent, UserProfileComponent, InputComponent, OutputComponent, BidirectionnelComponent, ParentComponentComponent, ItemListComponent, FilteredItemListComponent, CommonModule, CardComponent, TextComponent, ModalComponent, ButtonComponent, HoverboxComponent, KeytrackerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -53,6 +56,10 @@ export class AppComponent {
   ComposantC = ComposantCComponent;
 
   selected = this.ComposantA;
+
+  condition = false
+
+  conditionChiffre = 2222
 
   init = () => {
     console.log(this.counter());

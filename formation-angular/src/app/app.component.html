@@ -18,13 +18,13 @@
 <p>Nom mis à jour : {{userName}}</p>
 <button (click)="incrementAge()">Augmenter l'age - parent</button>
 <app-parent-component></app-parent-component> -->
-
+<!-- 
 <app-item-list [items]="items">
     <app-bidirectionnel [(name)]="userName" [(age)]="currentAge"></app-bidirectionnel>
-</app-item-list>
+</app-item-list> -->
 <!-- <app-filtered-item-list [items]="items" [query]="'it'"> -->
 <!-- </app-filtered-item-list> -->
-<div>
+<!-- <div>
     <ng-container *ngComponentOutlet="selectedComponent"></ng-container>
 </div>
 
@@ -42,4 +42,31 @@
 <app-modal [component]="selected">
     <h2>Titre</h2>
     <p>Description</p>
-</app-modal>
+</app-modal> -->
+
+
+<app-button></app-button>
+<app-hoverbox></app-hoverbox>
+<app-keytracker></app-keytracker>
+
+@if (condition){
+    <p>True</p>
+} @else {
+    <p>False</p>
+}
+
+@switch (conditionChiffre) {
+    @case (1) {
+        <p>1ere option</p>
+    } 
+    @case (2) {
+        <p>2eme option</p>
+    }
+    @default {
+        <p>Valeur par défaut</p>
+    }
+}
+
+@if(condition || conditionChiffre > 10){
+    <p>true</p>
+}
