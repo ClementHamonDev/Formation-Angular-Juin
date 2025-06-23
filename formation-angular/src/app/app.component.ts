@@ -20,10 +20,11 @@ import { ComposantAComponent } from '../components/exercice-5/composant-a/compos
 import { ComposantCComponent } from '../components/exercice-5/composant-c/composant-c.component';
 import { ComposantBComponent } from '../components/exercice-5/composant-b/composant-b.component';
 import { FormsModule } from '@angular/forms';
+import { ModalComponent } from "../components/exercice-5/modal/modal.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,FormsModule, PremierComponentComponent, HelloWorldComponent, WelcomeComponent, PageComponent, WelcomeWithNameComponent, UserInfoComponent, UserProfileComponent, InputComponent, OutputComponent, BidirectionnelComponent, ParentComponentComponent, ItemListComponent, FilteredItemListComponent, CommonModule, CardComponent, TextComponent],
+  imports: [RouterOutlet, FormsModule, PremierComponentComponent, HelloWorldComponent, WelcomeComponent, PageComponent, WelcomeWithNameComponent, UserInfoComponent, UserProfileComponent, InputComponent, OutputComponent, BidirectionnelComponent, ParentComponentComponent, ItemListComponent, FilteredItemListComponent, CommonModule, CardComponent, TextComponent, ModalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

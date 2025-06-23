@@ -38,3 +38,8 @@
     <option [ngValue]="ComposantC">C</option>
 </select>
 <ng-container *ngComponentOutlet="selected"></ng-container>
+
+<app-modal [component]="selected">
+    <h2>Titre</h2>
+    <p>Description</p>
+</app-modal>
