@@ -13,10 +13,17 @@ import { BidirectionnelComponent } from "../components/input-output/bidirectionn
 import { ParentComponentComponent } from "../components/exercice-3/parent-component/parent-component.component";
 import { ItemListComponent } from "../components/exercice-4/item-list/item-list.component";
 import { FilteredItemListComponent } from "../components/exercice-4/filtered-item-list/filtered-item-list.component";
+import { CommonModule } from '@angular/common';
+import { CardComponent } from "../components/exercice-5/card/card.component";
+import { TextComponent } from "../components/exercice-5/text/text.component";
+import { ComposantAComponent } from '../components/exercice-5/composant-a/composant-a.component';
+import { ComposantCComponent } from '../components/exercice-5/composant-c/composant-c.component';
+import { ComposantBComponent } from '../components/exercice-5/composant-b/composant-b.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, PremierComponentComponent, HelloWorldComponent, WelcomeComponent, PageComponent, WelcomeWithNameComponent, UserInfoComponent, UserProfileComponent, InputComponent, OutputComponent, BidirectionnelComponent, ParentComponentComponent, ItemListComponent, FilteredItemListComponent],
+  imports: [RouterOutlet,FormsModule, PremierComponentComponent, HelloWorldComponent, WelcomeComponent, PageComponent, WelcomeWithNameComponent, UserInfoComponent, UserProfileComponent, InputComponent, OutputComponent, BidirectionnelComponent, ParentComponentComponent, ItemListComponent, FilteredItemListComponent, CommonModule, CardComponent, TextComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -37,6 +44,14 @@ export class AppComponent {
   currentAge = signal<number>(18)
 
   items = ["Produit","Item"]
+
+  selectedComponent = PageComponent;
+
+  ComposantA = ComposantAComponent;
+  ComposantB = ComposantBComponent;
+  ComposantC = ComposantCComponent;
+
+  selected = this.ComposantA;
 
   init = () => {
     console.log(this.counter());

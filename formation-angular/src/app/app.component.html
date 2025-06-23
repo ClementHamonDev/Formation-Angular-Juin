@@ -14,11 +14,27 @@
 <app-output (nameChange)="receiveData($event)"></app-output>
 <p>Message recu : {{receiveMessage}}</p> -->
 
-<app-bidirectionnel [(name)]="userName" [(age)]="currentAge"></app-bidirectionnel>
+<!-- <app-bidirectionnel [(name)]="userName" [(age)]="currentAge"></app-bidirectionnel>
 <p>Nom mis à jour : {{userName}}</p>
 <button (click)="incrementAge()">Augmenter l'age - parent</button>
-<app-parent-component></app-parent-component>
+<app-parent-component></app-parent-component> -->
 
-<app-item-list [items]="items"></app-item-list>
-<app-filtered-item-list [items]="items" [query]="'it'"></app-filtered-item-list>
+<app-item-list [items]="items">
+    <app-bidirectionnel [(name)]="userName" [(age)]="currentAge"></app-bidirectionnel>
+</app-item-list>
+<!-- <app-filtered-item-list [items]="items" [query]="'it'"> -->
+<!-- </app-filtered-item-list> -->
+<div>
+    <ng-container *ngComponentOutlet="selectedComponent"></ng-container>
+</div>
 
+<app-card>
+    <app-text></app-text>
+</app-card>
+
+<select [(ngModel)]="selected">
+    <option [ngValue]="ComposantA">A</option>
+    <option [ngValue]="ComposantB">B</option>
+    <option [ngValue]="ComposantC">C</option>
+</select>
+<ng-container *ngComponentOutlet="selected"></ng-container>
