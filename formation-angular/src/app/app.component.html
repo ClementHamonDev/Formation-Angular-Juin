@@ -44,7 +44,7 @@
     <p>Description</p>
 </app-modal> -->
 
-
+<!-- 
 <app-button></app-button>
 <app-hoverbox></app-hoverbox>
 <app-keytracker></app-keytracker>
@@ -73,4 +73,27 @@
 
 <app-connection></app-connection>
 <app-role-switch></app-role-switch>
-<app-permission></app-permission>
+<app-permission></app-permission> -->
+
+<form (ngSubmit)="onSubmit()">
+    <input type="text" [(ngModel)]="nom" name="nom" placeholder="Nom" required>
+    <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required>
+
+    <label>
+        <input type="radio" [(ngModel)]="genre" value="Homme" [ngModelOptions]="{standalone: true}">Homme
+    </label>
+    <label>
+        <input type="radio" [(ngModel)]="genre" value="Femme" [ngModelOptions]="{standalone: true}">Femme
+    </label>
+    <label>
+        <input type="radio" [(ngModel)]="genre" value="Ne préfère pas dire" [ngModelOptions]="{standalone: true}">Ne préfère pas se prononcer
+    </label>
+    <p>Genre séléctionné : {{this.genre}}</p>
+
+    <select [(ngModel)]="pays" name="pays">
+        <option value="France">France</option>
+        <option value="Belgique">Belgique</option>
+        <option value="Suisse">Suisse</option>
+    </select>
+    <button type="submit">Envoyer</button>
+</form>

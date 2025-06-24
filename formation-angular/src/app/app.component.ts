@@ -64,6 +64,11 @@ export class AppComponent {
 
   conditionChiffre = 2222
 
+  nom: string = '';
+  email: string = '';
+  genre: string = '';
+  pays: string = '';
+
   init = () => {
     console.log(this.counter());
 
@@ -89,5 +94,9 @@ export class AppComponent {
   }
 
   incrementAge = () => this.currentAge.set(this.currentAge()+1)
+
+  onSubmit(){
+    console.log('Formulaire soumis', this.nom, this.email, this.genre, this.pays)
+  }
 
 }
