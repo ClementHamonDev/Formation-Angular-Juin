@@ -1,0 +1,52 @@
+<form [formGroup]="contactForm" (ngSubmit)="submitForm()" class="contact-form">
+
+    <label>Nom :</label>
+    <input type="text" formControlName="name" />
+    @if(contactForm.get('name')?.invalid) {
+        <div class="error">
+            @if(contactForm.get('name')?.errors?.['required']) {
+                <p>Le nom est requis</p>
+            }
+        </div>
+    }
+
+    <label>Email :</label>
+    <input type="email" formControlName="email" />
+    @if(contactForm.get('email')?.invalid) {
+        <div class="error">
+            @if(contactForm.get('email')?.errors?.['required']) {
+                <p>L'email est requis</p>
+            }
+            @if(contactForm.get('email')?.errors?.['email']) {
+                <p>Veuillez entrer un email valide</p>
+            }
+        </div>
+    }
+
+    <label>Message :</label>
+    <textarea formControlName="message"></textarea>
+    @if(contactForm.get('message')?.invalid) {
+        <div class="error">
+            @if(contactForm.get('message')?.errors?.['required']) {
+                <p>Le message est requis</p>
+            }
+            @if(contactForm.get('message')?.errors?.['minlength']) {
+                <p>Le message doit faire 10 caracteres Minimum</p>
+            }
+        </div>
+    }
+
+    <label>Langue préférée :</label>
+    <select formControlName="language">
+        <option value="">-- Choisir une langue --</option>
+        <option value="fr">Français</option>
+        <option value="en">Anglais</option>
+        <option value="es">Espagnol</option>
+    </select>
+
+    <button type="submit" [disabled]="contactForm.invalid">Envoyer</button>
+</form>
+
+@if(submitted) {
+    <p>Formulaire envoyé avec succès !</p>
+}

@@ -7,10 +7,11 @@ import { ComposantCComponent } from '../components/exercice-5/composant-c/compos
 import { ComposantBComponent } from '../components/exercice-5/composant-b/composant-b.component';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ContactFormComponent } from "../components/exercice-8/contact-form/contact-form.component";
+import { ContactFormBuilderComponent } from "../components/exercice-8/contact-form-builder/contact-form-builder.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, CommonModule, ContactFormComponent, ReactiveFormsModule],
+  imports: [RouterOutlet, FormsModule, CommonModule, ContactFormComponent, ReactiveFormsModule, ContactFormBuilderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
