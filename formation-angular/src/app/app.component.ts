@@ -5,12 +5,12 @@ import { CommonModule } from '@angular/common';
 import { ComposantAComponent } from '../components/exercice-5/composant-a/composant-a.component';
 import { ComposantCComponent } from '../components/exercice-5/composant-c/composant-c.component';
 import { ComposantBComponent } from '../components/exercice-5/composant-b/composant-b.component';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ContactFormComponent } from "../components/exercice-8/contact-form/contact-form.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, CommonModule, ContactFormComponent],
+  imports: [RouterOutlet, FormsModule, CommonModule, ContactFormComponent, ReactiveFormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -44,10 +44,12 @@ export class AppComponent {
 
   conditionChiffre = 2222
 
-  nom: string = '';
-  email: string = '';
+  // nom: string = '';
+  // email: string = '';
   genre: string = '';
   pays: string = '';
+
+  formulaire: FormGroup;
 
   init = () => {
     console.log(this.counter());
@@ -58,11 +60,13 @@ export class AppComponent {
 
   }
 
-  constructor() {
-    this.init();
-    effect(() => {
-      console.log(this.counter() - 1)
-    })
+  constructor(private formBuilder: FormBuilder) {
+    this.formulaire = this.formBuilder.group(
+      {
+        nom: ['', [Validators.required, Validators.minLength(3)]],
+        email: ['', [Validators.required, Validators.email]]
+      }
+    )
   }
 
   increment = () => {
@@ -76,7 +80,12 @@ export class AppComponent {
   incrementAge = () => this.currentAge.set(this.currentAge()+1)
 
   onSubmit(){
-    console.log('Formulaire soumis', this.nom, this.email, this.genre, this.pays)
+    if(this.formulaire.valid){
+      console.log(this.formulaire.value)
+    }
+    else {
+      console.log('invalide')
+    }
   }
 
 }
