@@ -1,0 +1,20 @@
+@switch (role()) {
+    @case ('admin') {
+        <p>Admin</p>
+    }
+    @case ('editor') {
+        <p>Editeur</p>
+    }
+    @case ('user') {
+        <p>Utilisateur</p>
+    }
+    @default {
+        <p>Role inconnu</p>
+    }
+}
+
+<select (change)="role.set($any($event.target).value)" >
+    <option value="admin">Admin</option>
+    <option value="editor">Editeur</option>
+    <option value="user">Utilisateur</option>
+</select>

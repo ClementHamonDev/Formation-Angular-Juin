@@ -1,0 +1,13 @@
+@if (isLoggedIn() && hasSubscription()){
+    <p>Accces premium</p>
+} @else if (isAdmin()) {
+    <p>Acces admin</p>
+} @else if (!isLoggedIn()) {
+    <p>Veuillez vous connecter</p>
+} @else {
+    <p>Autres cas</p>
+}
+
+<button (click)="toggleAdmin()">Bouton Admin</button>
+<button (click)="toggleSub()">Bouton Sub</button>
+<button (click)="toggleConnexion()">Bouton COnnexion</button>

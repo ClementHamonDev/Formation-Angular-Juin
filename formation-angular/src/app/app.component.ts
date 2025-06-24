@@ -24,10 +24,13 @@ import { ModalComponent } from "../components/exercice-5/modal/modal.component";
 import { ButtonComponent } from "../components/exercice-6/button/button.component";
 import { HoverboxComponent } from "../components/exercice-6/hoverbox/hoverbox.component";
 import { KeytrackerComponent } from "../components/exercice-6/keytracker/keytracker.component";
+import { ConnectionComponent } from "../components/exercice-7/connection/connection.component";
+import { RoleSwitchComponent } from "../components/exercice-7/role-switch/role-switch.component";
+import { PermissionComponent } from "../components/exercice-7/permission/permission.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, PremierComponentComponent, HelloWorldComponent, WelcomeComponent, PageComponent, WelcomeWithNameComponent, UserInfoComponent, UserProfileComponent, InputComponent, OutputComponent, BidirectionnelComponent, ParentComponentComponent, ItemListComponent, FilteredItemListComponent, CommonModule, CardComponent, TextComponent, ModalComponent, ButtonComponent, HoverboxComponent, KeytrackerComponent],
+  imports: [RouterOutlet, FormsModule, PremierComponentComponent, HelloWorldComponent, WelcomeComponent, PageComponent, WelcomeWithNameComponent, UserInfoComponent, UserProfileComponent, InputComponent, OutputComponent, BidirectionnelComponent, ParentComponentComponent, ItemListComponent, FilteredItemListComponent, CommonModule, CardComponent, TextComponent, ModalComponent, ButtonComponent, HoverboxComponent, KeytrackerComponent, ConnectionComponent, RoleSwitchComponent, PermissionComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
