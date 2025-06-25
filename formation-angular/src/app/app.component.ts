@@ -10,10 +10,13 @@ import { ContactFormComponent } from "../components/exercice-8/contact-form/cont
 import { ContactFormBuilderComponent } from "../components/exercice-8/contact-form-builder/contact-form-builder.component";
 import { StockDisplayComponent } from "../components/exercice-10/stock-display/stock-display.component";
 import { OrderStatusComponent } from "../components/exercice-10/order-status/order-status.component";
+import { Store, StoreModule } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { counterReducer } from '../store/counter.reducer';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, FormsModule, CommonModule, ContactFormComponent, ReactiveFormsModule, ContactFormBuilderComponent, StockDisplayComponent, OrderStatusComponent],
+  imports: [RouterOutlet, RouterLink, FormsModule, CommonModule, ContactFormComponent, ReactiveFormsModule, ContactFormBuilderComponent, StockDisplayComponent, OrderStatusComponent, StoreModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -52,8 +55,6 @@ export class AppComponent implements OnInit{
   genre: string = '';
   pays: string = '';
 
-  formulaire: FormGroup;
-
   userId = 1;
 
   user : { name: string; age: number; address: string; } | undefined;
@@ -66,13 +67,10 @@ export class AppComponent implements OnInit{
     }
   }
 
-  constructor(private formBuilder: FormBuilder) {
-    this.formulaire = this.formBuilder.group(
-      {
-        nom: ['', [Validators.required, Validators.minLength(3)]],
-        email: ['', [Validators.required, Validators.email]]
-      }
-    )
+  
+
+  constructor(private store : Store) {
+    // this.count = store.select();
   }
 
   increment = () => {
@@ -85,14 +83,6 @@ export class AppComponent implements OnInit{
 
   incrementAge = () => this.currentAge.set(this.currentAge() + 1)
 
-  onSubmit() {
-    if (this.formulaire.valid) {
-      console.log(this.formulaire.value)
-    }
-    else {
-      console.log('invalide')
-    }
-  }
 
   quantity = signal(0);
 
