@@ -75,11 +75,19 @@
 <app-role-switch></app-role-switch>
 <app-permission></app-permission> -->
 
-<form (ngSubmit)="onSubmit()" [formGroup]="formulaire">
+<!-- <form (ngSubmit)="onSubmit()" [formGroup]="formulaire">
     <input type="text" formControlName="nom" placeholder="Nom">
     <input type="email" formControlName="email" placeholder="Email">
     <button type="submit">Envoyer</button>
 </form>
 
 <app-contact-form></app-contact-form>
-<app-contact-form-builder></app-contact-form-builder>
+<app-contact-form-builder></app-contact-form-builder> -->
+
+<h1>Angular Router</h1>
+<nav>
+    <a routerLink="/first">Page</a>
+    <br/>
+    <a routerLink="/second">Connection</a>
+</nav>
+<router-outlet></router-outlet>

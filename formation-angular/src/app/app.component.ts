@@ -1,5 +1,5 @@
 import { Component, computed, effect, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { PageComponent } from "../components/exercice-1/page/page.component";
 import { CommonModule } from '@angular/common';
 import { ComposantAComponent } from '../components/exercice-5/composant-a/composant-a.component';
@@ -11,7 +11,7 @@ import { ContactFormBuilderComponent } from "../components/exercice-8/contact-fo
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, CommonModule, ContactFormComponent, ReactiveFormsModule, ContactFormBuilderComponent],
+  imports: [RouterOutlet, RouterLink, FormsModule, CommonModule, ContactFormComponent, ReactiveFormsModule, ContactFormBuilderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
