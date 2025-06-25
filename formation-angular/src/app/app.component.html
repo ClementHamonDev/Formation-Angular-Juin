@@ -84,7 +84,7 @@
 <app-contact-form></app-contact-form>
 <app-contact-form-builder></app-contact-form-builder> -->
 
-<h1>Angular Router</h1>
+<!-- <h1>Angular Router</h1>
 <nav>
     <a routerLink="/home">Home</a>
     <br/>
@@ -92,4 +92,18 @@
     <br/>
     <a routerLink="/user/{{userId}}">User</a>
 </nav>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
+
+<div>
+    {{this.user?.name}}
+    {{this.user?.age}}
+    {{this.user?.address}}
+</div>
+
+<app-stock-display [quantity]="quantity()"></app-stock-display>
+<button (click)="add()">+1</button>
+<button (click)="remove()">-1</button>
+
+<app-order-status [status]="status()"></app-order-status>
+<button (click)="changesStatus('Status 1')" [disabled]="status() === 'Statue 1'">Status 1</button>
+<button (click)="changesStatus('Status 2')" [disabled]="status() === 'Statue 2'">Status 2</button>

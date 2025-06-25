@@ -1,4 +1,4 @@
-import { Component, computed, effect, signal } from '@angular/core';
+import { Component, computed, effect, OnInit, signal } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { PageComponent } from "../components/exercice-1/page/page.component";
 import { CommonModule } from '@angular/common';
@@ -8,14 +8,16 @@ import { ComposantBComponent } from '../components/exercice-5/composant-b/compos
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ContactFormComponent } from "../components/exercice-8/contact-form/contact-form.component";
 import { ContactFormBuilderComponent } from "../components/exercice-8/contact-form-builder/contact-form-builder.component";
+import { StockDisplayComponent } from "../components/exercice-10/stock-display/stock-display.component";
+import { OrderStatusComponent } from "../components/exercice-10/order-status/order-status.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, FormsModule, CommonModule, ContactFormComponent, ReactiveFormsModule, ContactFormBuilderComponent],
+  imports: [RouterOutlet, RouterLink, FormsModule, CommonModule, ContactFormComponent, ReactiveFormsModule, ContactFormBuilderComponent, StockDisplayComponent, OrderStatusComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'formation-angular';
 
   counter = signal(0);
@@ -31,7 +33,7 @@ export class AppComponent {
 
   currentAge = signal<number>(18)
 
-  items = ["Produit","Item"]
+  items = ["Produit", "Item"]
 
   selectedComponent = PageComponent;
 
@@ -54,13 +56,14 @@ export class AppComponent {
 
   userId = 1;
 
-  init = () => {
-    console.log(this.counter());
+  user : { name: string; age: number; address: string; } | undefined;
 
-    this.counter.set(2);
-
-    console.log(this.counter())
-
+  ngOnInit(): void {
+    this.user = {
+      name: 'Clément',
+      age: 50,
+      address: 'adresse'
+    }
   }
 
   constructor(private formBuilder: FormBuilder) {
@@ -76,19 +79,35 @@ export class AppComponent {
     this.counter.set(this.counter() + 1);
   }
 
-  receiveData(message : string){
+  receiveData(message: string) {
     this.receiveMessage = message;
   }
 
-  incrementAge = () => this.currentAge.set(this.currentAge()+1)
+  incrementAge = () => this.currentAge.set(this.currentAge() + 1)
 
-  onSubmit(){
-    if(this.formulaire.valid){
+  onSubmit() {
+    if (this.formulaire.valid) {
       console.log(this.formulaire.value)
     }
     else {
       console.log('invalide')
     }
+  }
+
+  quantity = signal(0);
+
+  status = signal('')
+
+  add(){
+    this.quantity.set(this.quantity() +1);
+  }
+
+  remove(){
+    this.quantity.set(this.quantity() -1);
+  }
+
+  changesStatus(newStatus: string){
+    this.status.set(newStatus);
   }
 
 }
