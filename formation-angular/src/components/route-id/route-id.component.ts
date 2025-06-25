@@ -10,9 +10,16 @@ import { ActivatedRoute } from '@angular/router';
 export class RouteIdComponent {
 
   userId: string | null;
+  userName: string | null
 
   constructor(private route: ActivatedRoute){
-    this.userId = this.route.snapshot.paramMap.get('toto');
+    this.userId = this.route.snapshot.paramMap.get('id');
+    this.userName = this.route.snapshot.paramMap.get('name');
+
+    this.route.params.subscribe(params => {
+      this.userId = params['id']
+      this.userId = params['name']
+    })
   }
 
 }

@@ -52,6 +52,8 @@ export class AppComponent {
 
   formulaire: FormGroup;
 
+  userId = 1;
+
   init = () => {
     console.log(this.counter());
 
