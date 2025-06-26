@@ -12,8 +12,8 @@ import { StockDisplayComponent } from "../components/exercice-10/stock-display/s
 import { OrderStatusComponent } from "../components/exercice-10/order-status/order-status.component";
 import { Store, StoreModule } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { counterReducer } from '../store/counter.reducer';
-import { decrement, increment, reset, incrementBy } from '../store/counter.action';
+import { counterReducer } from '../store/counter/counter.reducer';
+import { decrement, increment, reset, incrementBy } from '../store/counter/counter.action';
 import { CounterComponent } from "./counter/counter.component";
 
 @Component({
