@@ -13,10 +13,12 @@ import { OrderStatusComponent } from "../components/exercice-10/order-status/ord
 import { Store, StoreModule } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { counterReducer } from '../store/counter.reducer';
+import { decrement, increment, reset, incrementBy } from '../store/counter.action';
+import { CounterComponent } from "./counter/counter.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, FormsModule, CommonModule, ContactFormComponent, ReactiveFormsModule, ContactFormBuilderComponent, StockDisplayComponent, OrderStatusComponent, StoreModule],
+  imports: [RouterOutlet, RouterLink, FormsModule, CommonModule, ContactFormComponent, ReactiveFormsModule, ContactFormBuilderComponent, StockDisplayComponent, OrderStatusComponent, StoreModule, CounterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -67,11 +69,28 @@ export class AppComponent implements OnInit{
     }
   }
 
-  
+  count$: Observable<number>
 
-  constructor(private store : Store) {
-    // this.count = store.select();
+  constructor(private store: Store<{count: number}>){
+    this.count$ = store.select('count');
   }
+
+  increaseButton(){
+    this.store.dispatch(increment())
+  }
+
+  decreaseButton(){
+    this.store.dispatch(decrement())
+  }
+
+  resetButton(){
+    this.store.dispatch(reset())
+  }
+
+  incrementByButton(nombre: number){
+    this.store.dispatch(incrementBy({nombre}))
+  }
+
 
   increment = () => {
     this.counter.set(this.counter() + 1);
