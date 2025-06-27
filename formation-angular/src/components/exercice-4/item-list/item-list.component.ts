@@ -8,6 +8,6 @@ import { Component, input } from '@angular/core';
 })
 export class ItemListComponent {
 
-  items = input.required<string[]>();
+  items = input<string[]>();
 
 }

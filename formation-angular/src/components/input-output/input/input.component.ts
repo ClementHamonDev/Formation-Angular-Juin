@@ -9,7 +9,6 @@ import { Component, input } from '@angular/core';
 export class InputComponent {
 
   firstName = input<string>()
-  lastName = input.required<string>()
-  age = input<number>(0)
-
+  lastName = input<string>()
+  age = input<string>()
 }

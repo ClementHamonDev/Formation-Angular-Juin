@@ -119,4 +119,12 @@ export class AppComponent implements OnInit{
     this.status.set(newStatus);
   }
 
+  addNumber(a: number, b: number): number {
+    return a + b;
+  }
+
+  maj(mot: string): string{
+    return mot.toUpperCase();
+  }
+
 }

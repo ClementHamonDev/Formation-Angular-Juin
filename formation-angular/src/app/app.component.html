@@ -108,8 +108,6 @@
 <button (click)="changesStatus('Status 1')" [disabled]="status() === 'Statue 1'">Status 1</button>
 <button (click)="changesStatus('Status 2')" [disabled]="status() === 'Statue 2'">Status 2</button> -->
 
-<app-counter></app-counter>
-<button (click)="increaseButton()">Increment</button>
-<button (click)="decreaseButton()">Decrease</button>
-<button (click)="resetButton()">Reset</button>
-<button (click)="incrementByButton(10)">Increment By Number</button>
+<h1>Mon Application</h1>
+<div id="counter">{{this.counter()}}</div>
+<button id="btn" (click)="increment()">Increment</button>

@@ -8,17 +8,14 @@ import { Component, input } from '@angular/core';
 })
 export class FilteredItemListComponent {
 
-  items = input.required<string[]>();
-  query = input.required<string>()
+  items = input<string[]>([]); 
+  query = input<string>('')
 
-  get filteredItems(): string[] {
-    
-    
-    return this.items().filter(item => {
+  ngOnInit() {
+
+    this.items().filter(item => {
       var q = item.toLowerCase();
       return q.includes(this.query());
     })
   }
-
-
 }
