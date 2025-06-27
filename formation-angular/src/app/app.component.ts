@@ -15,14 +15,20 @@ import { Observable } from 'rxjs';
 import { counterReducer } from '../store/counter/counter.reducer';
 import { decrement, increment, reset, incrementBy } from '../store/counter/counter.action';
 import { CounterComponent } from "./counter/counter.component";
+import { GreetingComponent } from "./greeting/greeting.component";
+
+interface User {
+  name: string;
+  age: number;
+}
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, FormsModule, CommonModule, ContactFormComponent, ReactiveFormsModule, ContactFormBuilderComponent, StockDisplayComponent, OrderStatusComponent, StoreModule, CounterComponent],
+  imports: [RouterOutlet, RouterLink, FormsModule, CommonModule, ContactFormComponent, ReactiveFormsModule, ContactFormBuilderComponent, StockDisplayComponent, OrderStatusComponent, StoreModule, CounterComponent, GreetingComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'formation-angular';
 
   counter = signal(0);
@@ -59,7 +65,7 @@ export class AppComponent implements OnInit{
 
   userId = 1;
 
-  user : { name: string; age: number; address: string; } | undefined;
+  user: { name: string; age: number; address: string; } | undefined;
 
   ngOnInit(): void {
     this.user = {
@@ -71,29 +77,37 @@ export class AppComponent implements OnInit{
 
   count$: Observable<number>
 
-  constructor(private store: Store<{count: number}>){
+  constructor(private store: Store<{ count: number }>) {
     this.count$ = store.select('count');
   }
 
-  increaseButton(){
+  increaseButton() {
     this.store.dispatch(increment())
   }
 
-  decreaseButton(){
+  decreaseButton() {
     this.store.dispatch(decrement())
   }
 
-  resetButton(){
+  resetButton() {
     this.store.dispatch(reset())
   }
 
-  incrementByButton(nombre: number){
-    this.store.dispatch(incrementBy({nombre}))
+  incrementByButton(nombre: number) {
+    this.store.dispatch(incrementBy({ nombre }))
   }
 
 
   increment = () => {
     this.counter.set(this.counter() + 1);
+  }
+
+  decrement = () => {
+    this.counter.set(this.counter() - 1);
+  }
+
+  reset = () => {
+    this.counter.set(0);
   }
 
   receiveData(message: string) {
@@ -107,15 +121,15 @@ export class AppComponent implements OnInit{
 
   status = signal('')
 
-  add(){
-    this.quantity.set(this.quantity() +1);
+  add() {
+    this.quantity.set(this.quantity() + 1);
   }
 
-  remove(){
-    this.quantity.set(this.quantity() -1);
+  remove() {
+    this.quantity.set(this.quantity() - 1);
   }
 
-  changesStatus(newStatus: string){
+  changesStatus(newStatus: string) {
     this.status.set(newStatus);
   }
 
@@ -123,8 +137,14 @@ export class AppComponent implements OnInit{
     return a + b;
   }
 
-  maj(mot: string): string{
+  maj(mot: string): string {
     return mot.toUpperCase();
+  }
+
+  filterAndSortUsers(users: User[], minAge: number): User[] {
+    return users
+      .filter((user: User) => user.age >= minAge)
+      .sort((a: User, b: User) => a.name.localeCompare(b.name));
   }
 
 }

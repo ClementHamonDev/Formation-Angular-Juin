@@ -110,4 +110,8 @@
 
 <h1>Mon Application</h1>
 <div id="counter">{{this.counter()}}</div>
-<button id="btn" (click)="increment()">Increment</button>
+<button id="btn+1" (click)="increment()">Increment</button>
+<button id="btn-1" (click)="decrement()">Increment</button>
+<button id="btn-0" (click)="reset()">Increment</button>
+
+<app-greeting [name]="'Clément'"></app-greeting>
