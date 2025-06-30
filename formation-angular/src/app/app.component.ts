@@ -5,17 +5,15 @@ import { CommonModule } from '@angular/common';
 import { ComposantAComponent } from '../components/exercice-5/composant-a/composant-a.component';
 import { ComposantCComponent } from '../components/exercice-5/composant-c/composant-c.component';
 import { ComposantBComponent } from '../components/exercice-5/composant-b/composant-b.component';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ContactFormComponent } from "../components/exercice-8/contact-form/contact-form.component";
-import { ContactFormBuilderComponent } from "../components/exercice-8/contact-form-builder/contact-form-builder.component";
-import { StockDisplayComponent } from "../components/exercice-10/stock-display/stock-display.component";
-import { OrderStatusComponent } from "../components/exercice-10/order-status/order-status.component";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Store, StoreModule } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { counterReducer } from '../store/counter/counter.reducer';
 import { decrement, increment, reset, incrementBy } from '../store/counter/counter.action';
-import { CounterComponent } from "./counter/counter.component";
 import { GreetingComponent } from "./greeting/greeting.component";
+import { HighlightDirective } from './directives/highlight.directive';
+import { ChangeColorDirective } from './directives/change-color.directive';
+import { HideElementDirective } from './directives/hide-element.directive';
+import { BorderDirective } from './directives/border.directive';
 
 interface User {
   name: string;
@@ -24,7 +22,7 @@ interface User {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, FormsModule, CommonModule, ContactFormComponent, ReactiveFormsModule, ContactFormBuilderComponent, StockDisplayComponent, OrderStatusComponent, StoreModule, CounterComponent, GreetingComponent],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule, StoreModule, GreetingComponent, HighlightDirective, ChangeColorDirective, HideElementDirective, BorderDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

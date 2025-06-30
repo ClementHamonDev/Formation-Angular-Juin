@@ -108,10 +108,19 @@
 <button (click)="changesStatus('Status 1')" [disabled]="status() === 'Statue 1'">Status 1</button>
 <button (click)="changesStatus('Status 2')" [disabled]="status() === 'Statue 2'">Status 2</button> -->
 
-<h1>Mon Application</h1>
+<h1 appHighlight [colorInput]="'red'" appChangeColor>Mon Application</h1>
+<button appHideElement>Cache ce bouton</button>
 <div id="counter">{{this.counter()}}</div>
 <button id="btn+1" (click)="increment()">Increment</button>
 <button id="btn-1" (click)="decrement()">Increment</button>
 <button id="btn-0" (click)="reset()">Increment</button>
 
 <app-greeting [name]="'Clément'"></app-greeting>
+
+<div appBorder [borderColor]="'red'" [borderWidth]="'3px'">
+    Ce bloc a une bordure rouge de 3px
+</div>
+
+<p appBorder [borderColor]="'blue'" [borderWidth]="'1px'">
+    Paragraphe avec bordure bleue 1px
+</p>

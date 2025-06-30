@@ -21,6 +21,7 @@
     "@ngrx/entity": "^19.2.1",
     "@ngrx/router-store": "^19.2.1",
     "@ngrx/store": "^18.1.1",
+    "@types/karma": "^6.3.9",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
