@@ -108,6 +108,8 @@
 <button (click)="changesStatus('Status 1')" [disabled]="status() === 'Statue 1'">Status 1</button>
 <button (click)="changesStatus('Status 2')" [disabled]="status() === 'Statue 2'">Status 2</button> -->
 
+
+<!-- 
 <h1 appHighlight [colorInput]="'red'" appChangeColor>Mon Application</h1>
 <button appHideElement>Cache ce bouton</button>
 <div id="counter">{{this.counter()}}</div>
@@ -128,3 +130,6 @@
 @for(user of users; track user.id){
     <li>{{user.name}}</li>
 }
+-->
+
+<app-pokemon-list></app-pokemon-list>

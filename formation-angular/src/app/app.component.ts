@@ -9,12 +9,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Store, StoreModule } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { decrement, increment, reset, incrementBy } from '../store/counter/counter.action';
-import { GreetingComponent } from "./greeting/greeting.component";
-import { HighlightDirective } from './directives/highlight.directive';
-import { ChangeColorDirective } from './directives/change-color.directive';
-import { HideElementDirective } from './directives/hide-element.directive';
-import { BorderDirective } from './directives/border.directive';
 import { ApiService } from './services/api.service';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 interface User {
   name: string;
@@ -23,7 +20,7 @@ interface User {
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, CommonModule, ReactiveFormsModule, StoreModule, GreetingComponent, HighlightDirective, ChangeColorDirective, HideElementDirective, BorderDirective],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule, StoreModule, PokemonListComponent, HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
