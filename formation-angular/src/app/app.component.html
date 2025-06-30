@@ -124,3 +124,7 @@
 <p appBorder [borderColor]="'blue'" [borderWidth]="'1px'">
     Paragraphe avec bordure bleue 1px
 </p>
+
+@for(user of users; track user.id){
+    <li>{{user.name}}</li>
+}

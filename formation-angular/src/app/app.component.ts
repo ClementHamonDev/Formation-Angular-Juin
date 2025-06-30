@@ -14,6 +14,7 @@ import { HighlightDirective } from './directives/highlight.directive';
 import { ChangeColorDirective } from './directives/change-color.directive';
 import { HideElementDirective } from './directives/hide-element.directive';
 import { BorderDirective } from './directives/border.directive';
+import { ApiService } from './services/api.service';
 
 interface User {
   name: string;
@@ -65,17 +66,25 @@ export class AppComponent implements OnInit {
 
   user: { name: string; age: number; address: string; } | undefined;
 
+  users: any[] = []
+
   ngOnInit(): void {
     this.user = {
       name: 'Clément',
       age: 50,
       address: 'adresse'
     }
+
+    this.api.getUsers().subscribe({
+      next: (data) => this.users = data,
+      error: (e) => console.error('Erreur lors de la récupération', e),
+      complete: () => console.log('Recupération finie')
+    })
   }
 
   count$: Observable<number>
 
-  constructor(private store: Store<{ count: number }>) {
+  constructor(private store: Store<{ count: number }>, private api : ApiService) {
     this.count$ = store.select('count');
   }
 
